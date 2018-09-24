@@ -20,7 +20,7 @@ export default function waitUntil(fun, timeout = 0, interval = 20) {
                 return;
             }
             if (timedOut) {
-                reject(new Error('AsyncTestUtil.waitUntil(): reached timeout of ' + timeout + 'ms'));
+                reject(new Error('U3Utils.waitUntil(): reached timeout of ' + timeout + 'ms'));
                 return;
             }
             wait(interval).then(() => {

@@ -1,5 +1,5 @@
 const assert = require('assert');
-const AsyncTestUtil = require('../dist/lib/index');
+const U3Utils = require('../dist/lib/index');
 
 
 describe('wait-until.test.js', () => {
@@ -9,23 +9,23 @@ describe('wait-until.test.js', () => {
             x = x + 1;
             return x = 5;
         };
-        await AsyncTestUtil.waitUntil(fun);
+        await U3Utils.waitUntil(fun);
     });
     it('should wait until async-function returns true', async () => {
         let x = 0;
         const fun = async () => {
-            await AsyncTestUtil.wait(10);
+            await U3Utils.wait(10);
             x++;
             if (x > 5) return true;
         };
-        await AsyncTestUtil.waitUntil(fun);
+        await U3Utils.waitUntil(fun);
     });
     it('should throw if timeout is over', async () => {
         const fun = function() {
             return false;
         };
-        await AsyncTestUtil.assertThrows(
-            () => AsyncTestUtil.waitUntil(fun, 100),
+        await U3Utils.assertThrows(
+            () => U3Utils.waitUntil(fun, 100),
             Error,
             'timeout'
         );
@@ -36,7 +36,7 @@ describe('wait-until.test.js', () => {
             x = x + 1;
             return x = 5;
         };
-        await AsyncTestUtil.waitUntil(fun, 100);
-        await AsyncTestUtil.wait(300);
+        await U3Utils.waitUntil(fun, 100);
+        await U3Utils.wait(300);
     });
 });

@@ -1,19 +1,19 @@
 const assert = require('assert');
-const AsyncTestUtil = require('../dist/lib/index');
+const U3Utils = require('../dist/lib/index');
 
 
 describe('wait-resolveable.test.js', () => {
     it('should wait time is over', async() => {
-        await AsyncTestUtil.waitResolveable(100);
+        await U3Utils.waitResolveable(100);
     });
     it('should wait until manually resolved', async() => {
         let resolved = null;
-        const waiter = AsyncTestUtil.waitResolveable(10000);
+        const waiter = U3Utils.waitResolveable(10000);
         waiter.promise.then(x => {
             resolved = x;
         });
         waiter.resolve('foobar');
-        await AsyncTestUtil.wait();
+        await U3Utils.wait();
         assert.equal('foobar', resolved);
     });
 });

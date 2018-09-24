@@ -1,13 +1,13 @@
 const assert = require('assert');
-const AsyncTestUtil = require('../dist/lib/index');
+const U3Utils = require('../dist/lib/index');
 
 describe('assert-throws.test.js', () => {
     it('valid if function throws', async () => {
         const test = async function() {
-            await AsyncTestUtil.wait(1);
+            await U3Utils.wait(1);
             throw new Error('foo');
         };
-        await AsyncTestUtil.assertThrows(
+        await U3Utils.assertThrows(
             test,
             Error
         );
@@ -16,19 +16,19 @@ describe('assert-throws.test.js', () => {
         const test = function() {
             throw new Error('foo');
         };
-        await AsyncTestUtil.assertThrows(
+        await U3Utils.assertThrows(
             test,
             Error
         );
     });
     it('throw if function does not throw', async () => {
         const test = async function() {
-            await AsyncTestUtil.wait(1);
+            await U3Utils.wait(1);
             return 1;
         };
         let thrown = false;
         try {
-            await AsyncTestUtil.assertThrows(
+            await U3Utils.assertThrows(
                 test,
                 Error
             );
@@ -39,12 +39,12 @@ describe('assert-throws.test.js', () => {
     });
     it('throw if no TypeError', async () => {
         const test = async function() {
-            await AsyncTestUtil.wait(1);
+            await U3Utils.wait(1);
             throw new Error('foo');
         };
         let thrown = false;
         try {
-            await AsyncTestUtil.assertThrows(
+            await U3Utils.assertThrows(
                 test,
                 TypeError
             );
@@ -55,12 +55,12 @@ describe('assert-throws.test.js', () => {
     });
     it('throw if no Error', async () => {
         const test = async function() {
-            await AsyncTestUtil.wait(1);
+            await U3Utils.wait(1);
             throw new TypeError('foo');
         };
         let thrown = false;
         try {
-            await AsyncTestUtil.assertThrows(
+            await U3Utils.assertThrows(
                 test,
                 Error
             );
@@ -71,12 +71,12 @@ describe('assert-throws.test.js', () => {
     });
     it('throw if not contains', async () => {
         const test = async function() {
-            await AsyncTestUtil.wait(1);
+            await U3Utils.wait(1);
             throw new TypeError('foo');
         };
         let thrown = false;
         try {
-            await AsyncTestUtil.assertThrows(
+            await U3Utils.assertThrows(
                 test,
                 TypeError,
                 'bar'
@@ -88,10 +88,10 @@ describe('assert-throws.test.js', () => {
     });
     it('dont throw if contains', async () => {
         const test = async function() {
-            await AsyncTestUtil.wait(1);
+            await U3Utils.wait(1);
             throw new Error('foobar');
         };
-        await AsyncTestUtil.assertThrows(
+        await U3Utils.assertThrows(
             test,
             Error,
             'oba'
@@ -109,14 +109,14 @@ describe('assert-throws.test.js', () => {
         };
 
         // via class
-        await AsyncTestUtil.assertThrows(
+        await U3Utils.assertThrows(
             () => throwingFunction(),
             CustomError,
             'custom'
         );
 
         // via class-name
-        await AsyncTestUtil.assertThrows(
+        await U3Utils.assertThrows(
             () => throwingFunction(),
             'CustomError',
             'custom'
@@ -131,7 +131,7 @@ describe('assert-throws.test.js', () => {
             throw error;
         };
         // via class
-        const ret = await AsyncTestUtil.assertThrows(
+        const ret = await U3Utils.assertThrows(
             () => throwingFunction(),
             Error,
             'foobar'

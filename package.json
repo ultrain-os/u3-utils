@@ -1,5 +1,5 @@
 {
-  "name": "async-test-util",
+  "name": "u3-utils",
   "version": "1.6.1",
   "description": "Util-functions that are be useful in async tests",
   "main": "./dist/lib/index.js",
@@ -12,20 +12,20 @@
     "test": "npm run test:node && npm run test:browser",
     "lint": "eslint src test",
     "clear": "rimraf -rf ./dist",
-    "build:es6": "rimraf -rf dist/es && cross-env NODE_ENV=es6 babel src --out-dir dist/es",
-    "build:es5": "cross-env NODE_ENV=es5 node node_modules/babel-cli/bin/babel.js src --out-dir dist/lib",
+    "build:es6": "rimraf -rf dist/es6 && cross-env NODE_ENV=es6 babel src --out-dir dist/es6",
+    "build:es5": "cross-env NODE_ENV=es5 node node_modules/babel-cli/bin/babel.js src --out-dir dist/es5",
     "build": "npm run clear && npm run build:es6 && npm run build:es5"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pubkey/async-test-util.git"
+    "url": "git+https://github.com/ultrain-os/u3-utils.git"
   },
   "author": "pubkey",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/pubkey/async-test-util/issues"
+    "url": "https://github.com/ultrain-os/u3-utils/issues"
   },
-  "homepage": "https://github.com/pubkey/async-test-util#readme",
+  "homepage": "https://github.com/ultrain-os/u3-utils#readme",
   "devDependencies": {
     "assert": "1.4.1",
     "babel-cli": "6.26.0",

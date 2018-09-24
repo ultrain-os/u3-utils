@@ -1,5 +1,5 @@
 const assert = require('assert');
-const AsyncTestUtil = require('../dist/lib/index');
+const U3Utils = require('../dist/lib/index');
 
 
 describe('clone.test.js', () => {
@@ -7,7 +7,7 @@ describe('clone.test.js', () => {
         const obj = {
             foo: 'bar'
         };
-        const cloned = AsyncTestUtil.clone(obj);
+        const cloned = U3Utils.clone(obj);
         assert.equal(JSON.stringify(obj), JSON.stringify(cloned));
     });
 });
