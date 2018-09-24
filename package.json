@@ -1,6 +1,6 @@
 {
   "name": "u3-utils",
-  "version": "1.6.1",
+  "version": "0.0.1",
   "description": "Util-functions that are be useful in async tests",
   "main": "./dist/lib/index.js",
   "jsnext:main": "./dist/es/index.js",

@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _assertThrows = require('./assert-throws');
@@ -62,20 +62,19 @@ var _promisify2 = _interopRequireDefault(_promisify);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var U3Utils = {
-    assertThrows: _assertThrows2['default'],
-    clone: _clone2['default'],
-    deepEqual: _deepEqual2['default'],
-    waitResolveable: _waitResolveable2['default'],
-    waitUntil: _waitUntil2['default'],
-    wait: _wait2['default'],
-    waitForever: _waitForever2['default'],
-    runForever: _runForever2['default'],
-    randomString: _randomString2['default'],
-    randomNumber: _randomNumber2['default'],
-    resolveValues: _resolveValues2['default'],
-    performanceNow: _performanceNow2['default'],
-    isPromise: _isPromise2['default'],
-    promisify: _promisify2['default']
+exports['default'] = {
+  assertThrows: _assertThrows2['default'],
+  clone: _clone2['default'],
+  deepEqual: _deepEqual2['default'],
+  waitResolveable: _waitResolveable2['default'],
+  waitUntil: _waitUntil2['default'],
+  wait: _wait2['default'],
+  waitForever: _waitForever2['default'],
+  runForever: _runForever2['default'],
+  randomString: _randomString2['default'],
+  randomNumber: _randomNumber2['default'],
+  resolveValues: _resolveValues2['default'],
+  performanceNow: _performanceNow2['default'],
+  isPromise: _isPromise2['default'],
+  promisify: _promisify2['default']
 };
-exports['default'] = U3Utils;
