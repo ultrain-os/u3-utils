@@ -13,19 +13,22 @@ import performanceNow from './performance-now';
 import isPromise from './is-promise';
 import promisify from './promisify';
 
-export default {
-  assertThrows: assertThrows,
-  clone: clone,
-  deepEqual: deepEqual,
-  waitResolveable: waitResolveable,
-  waitUntil: waitUntil,
-  wait: wait,
-  waitForever: waitForever,
-  runForever: runForever,
-  randomString: randomString,
-  randomNumber: randomNumber,
-  resolveValues: resolveValues,
-  performanceNow: performanceNow,
-  isPromise: isPromise,
-  promisify: promisify
+var U3Utils = {
+    assertThrows: assertThrows,
+    clone: clone,
+    deepEqual: deepEqual,
+    waitResolveable: waitResolveable,
+    waitUntil: waitUntil,
+    wait: wait,
+    waitForever: waitForever,
+    runForever: runForever,
+    randomString: randomString,
+    randomNumber: randomNumber,
+    resolveValues: resolveValues,
+    performanceNow: performanceNow,
+    isPromise: isPromise,
+    promisify: promisify
 };
+export default U3Utils;
+
+export { assertThrows, clone, deepEqual, waitResolveable, waitUntil, wait, waitForever, runForever, randomString, randomNumber, resolveValues, performanceNow, isPromise, promisify };

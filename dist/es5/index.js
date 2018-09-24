@@ -1,8 +1,9 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
+exports.promisify = exports.isPromise = exports.performanceNow = exports.resolveValues = exports.randomNumber = exports.randomString = exports.runForever = exports.waitForever = exports.wait = exports.waitUntil = exports.waitResolveable = exports.deepEqual = exports.clone = exports.assertThrows = undefined;
 
 var _assertThrows = require('./assert-throws');
 
@@ -62,19 +63,34 @@ var _promisify2 = _interopRequireDefault(_promisify);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-exports['default'] = {
-  assertThrows: _assertThrows2['default'],
-  clone: _clone2['default'],
-  deepEqual: _deepEqual2['default'],
-  waitResolveable: _waitResolveable2['default'],
-  waitUntil: _waitUntil2['default'],
-  wait: _wait2['default'],
-  waitForever: _waitForever2['default'],
-  runForever: _runForever2['default'],
-  randomString: _randomString2['default'],
-  randomNumber: _randomNumber2['default'],
-  resolveValues: _resolveValues2['default'],
-  performanceNow: _performanceNow2['default'],
-  isPromise: _isPromise2['default'],
-  promisify: _promisify2['default']
+var U3Utils = {
+    assertThrows: _assertThrows2['default'],
+    clone: _clone2['default'],
+    deepEqual: _deepEqual2['default'],
+    waitResolveable: _waitResolveable2['default'],
+    waitUntil: _waitUntil2['default'],
+    wait: _wait2['default'],
+    waitForever: _waitForever2['default'],
+    runForever: _runForever2['default'],
+    randomString: _randomString2['default'],
+    randomNumber: _randomNumber2['default'],
+    resolveValues: _resolveValues2['default'],
+    performanceNow: _performanceNow2['default'],
+    isPromise: _isPromise2['default'],
+    promisify: _promisify2['default']
 };
+exports['default'] = U3Utils;
+exports.assertThrows = _assertThrows2['default'];
+exports.clone = _clone2['default'];
+exports.deepEqual = _deepEqual2['default'];
+exports.waitResolveable = _waitResolveable2['default'];
+exports.waitUntil = _waitUntil2['default'];
+exports.wait = _wait2['default'];
+exports.waitForever = _waitForever2['default'];
+exports.runForever = _runForever2['default'];
+exports.randomString = _randomString2['default'];
+exports.randomNumber = _randomNumber2['default'];
+exports.resolveValues = _resolveValues2['default'];
+exports.performanceNow = _performanceNow2['default'];
+exports.isPromise = _isPromise2['default'];
+exports.promisify = _promisify2['default'];

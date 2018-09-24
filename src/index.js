@@ -13,19 +13,37 @@ import performanceNow from './performance-now';
 import isPromise from './is-promise';
 import promisify from './promisify';
 
-export default {
-  assertThrows,
-  clone,
-  deepEqual,
-  waitResolveable,
-  waitUntil,
-  wait,
-  waitForever,
-  runForever,
-  randomString,
-  randomNumber,
-  resolveValues,
-  performanceNow,
-  isPromise,
-  promisify
+const U3Utils = {
+    assertThrows,
+    clone,
+    deepEqual,
+    waitResolveable,
+    waitUntil,
+    wait,
+    waitForever,
+    runForever,
+    randomString,
+    randomNumber,
+    resolveValues,
+    performanceNow,
+    isPromise,
+    promisify
+};
+export default U3Utils;
+
+export {
+    assertThrows,
+    clone,
+    deepEqual,
+    waitResolveable,
+    waitUntil,
+    wait,
+    waitForever,
+    runForever,
+    randomString,
+    randomNumber,
+    resolveValues,
+    performanceNow,
+    isPromise,
+    promisify
 };
