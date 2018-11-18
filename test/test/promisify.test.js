@@ -1,5 +1,5 @@
 const assert = require('assert');
-const U3Utils = require('../dist/lib/index');
+const U3Utils = require('../../src/test/index');
 
 
 describe('promisify.test.js', () => {
