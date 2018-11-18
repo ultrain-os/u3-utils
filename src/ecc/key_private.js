@@ -180,7 +180,6 @@ function initialize () {
     return;
   }
 
-  unitTest();
   keyUtils.addEntropy(...keyUtils.cpuEntropy());
   assert(keyUtils.entropyCount() >= 128, "insufficient entropy");
 
