@@ -1,6 +1,6 @@
 {
   "name": "u3-utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Util-functions that are be useful in async tests",
   "scripts": {
     "test": "mocha test/*/**.js --timeout 30000",
