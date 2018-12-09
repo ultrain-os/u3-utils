@@ -3,7 +3,8 @@
   "version": "0.0.2",
   "description": "Util-functions that are be useful in async tests",
   "scripts": {
-    "test": "mocha test/*/**.js --timeout 30000"
+    "test": "mocha test/*/**.js --timeout 30000",
+    "dist": "rm -rf dist && mkdir -p dist && babel --copy-files src --out-dir dist"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,10 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
+    "babel-plugin-transform-es3-property-literals": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-plugin-transform-runtime": "6.23.0",
     "babel-preset-es2015": "^6.24.1",
@@ -47,5 +52,21 @@
     "lodash.isstring": "^4.0.1",
     "minimatch": "^3.0.4",
     "randombytes": "^2.0.5"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "syntax-async-functions",
+      "transform-regenerator",
+      [
+        "transform-runtime",
+        {
+          "polyfill": false,
+          "regenerator": true
+        }
+      ]
+    ]
   }
 }
