@@ -30,8 +30,8 @@ function PrivateKey (d) {
 
   function toString () {
     // todo, use PVT_K1_
-    // return 'PVT_K1_' + keyUtils.checkEncode(toBuffer(), 'K1')
-    return toWif();
+     return 'PVT_K1_' + keyUtils.checkEncode(toBuffer(), 'K1')
+    //return toWif();
   }
 
   function toWif () {

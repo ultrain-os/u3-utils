@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 const assert = require('assert')
 
-const {ecc} = require('../../src')
+const {ecc} = require('../../index')
 
 const wif = '5KYZdUEo39z3FPrtuX2QbbwGnNP5zTd7yyr2SC1j299sBCnWjss'
 
@@ -21,7 +21,25 @@ describe('Common API', () => {
   it('privateToPublic', () => {
     // const pub = 'PUB_K1_859gxfnXyUriMgUeThh1fWv3oqcpLFyHa3TfFYC4PK2Ht7beeX'
     const pub = 'UTR859gxfnXyUriMgUeThh1fWv3oqcpLFyHa3TfFYC4PK2HqhToVM'
-    assert.equal(ecc.privateToPublic(wif), pub)
+    //const pub_ = ecc.privateToPublic(wif)
+    //console.log(pub_)
+
+    //assert.equal(ecc.privateToPublic(wif), pub)
+
+    const prv1 = '5JoTvD8emJDGHNGHyRCjqvpJqRY2jMmn5G6V9j8AifnszK5jKMd'
+
+    const prv2 = '5JoTvD8emJDGHNGHyRCjqvpJqRY2jMmn5G6V9j8AifnszK5jKMp'
+
+    const prv3 = '5JoTvD8emJDGHNGHyRCjqvpJqRY2jMmn5G6V9j8AifnszK5jKMe'
+
+    const pub1 = ecc.privateToPublic(prv1);
+    const pub2 = ecc.privateToPublic(prv2);
+    const pub3 = ecc.privateToPublic(prv3);
+    console.log(pub1)
+    console.log(pub2)
+    console.log(pub3)
+
+
   })
 
   it('isValidPublic', () => {

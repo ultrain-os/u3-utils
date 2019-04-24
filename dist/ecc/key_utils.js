@@ -1,4 +1,6 @@
-var base58 = require("bs58");
+var ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+var basex = require("bs58-rn");
+var base58 = basex(ALPHABET);
 var assert = require("assert");
 var randomBytes = require("randombytes");
 

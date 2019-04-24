@@ -2,7 +2,7 @@
 /* eslint-env mocha */
 const assert = require('assert')
 
-const {ecc} = require('../../src')
+const {ecc} = require('../../index')
 
 const {PublicKey, PrivateKey, Signature} = ecc
 
