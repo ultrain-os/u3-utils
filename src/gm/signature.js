@@ -17,8 +17,8 @@ function Signature(sm2signature) {
 
     function verifyHash(data, pubkey, encoding = "utf8") {
         assert.equal(typeof data, "string", 'data to verifyHash must be string.');
-        let rawPub = PublicKey.fromString(pubkey).toUncompressed();
-        // let rawPub = pubkey;
+        // let rawPub = PublicKey.fromString(pubkey).toUncompressed();
+        let rawPub = pubkey;
         console.log(`Signature.verifyHash  rawPub: ${rawPub}`);
         return sm2impl.doVerifySignature(data, sm2signature, rawPub, { hash: true });
     };

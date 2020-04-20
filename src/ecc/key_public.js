@@ -66,7 +66,7 @@ PublicKey.isValid = function(text) {
 };
 
 PublicKey.fromBinary = function(bin) {
-  return PublicKey.fromBuffer(new Buffer(bin, "binary"));
+  return PublicKey.fromBuffer(Buffer.from(bin, "binary"));
 };
 
 PublicKey.fromBuffer = function(buffer) {
@@ -102,9 +102,9 @@ PublicKey.fromStringOrThrow = function(public_key) {
 };
 
 PublicKey.fromHex = function(hex) {
-  return PublicKey.fromBuffer(new Buffer(hex, "hex"));
+  return PublicKey.fromBuffer(Buffer.from(hex, "hex"));
 };
 
 PublicKey.fromStringHex = function(hex) {
-  return PublicKey.fromString(new Buffer(hex, "hex"));
+  return PublicKey.fromString(Buffer.from(hex, "hex"));
 };
