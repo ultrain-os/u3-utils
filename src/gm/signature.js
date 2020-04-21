@@ -3,6 +3,7 @@ const keyUtils = require("./key_utils");
 const PrivateKey = require("./private_key");
 const PublicKey = require('./public_key');
 const sm2impl = require('./sm2');
+const hash = require('./hash');
 
 module.exports = Signature;
 
@@ -68,16 +69,19 @@ function Signature(sm2signature) {
 
 Signature.sign = function (data, privateKey, encoding = "utf8") {
     let rawPrivateKey = PrivateKey.rawSm2PrivateKey(privateKey);
-    let signature = sm2impl.doSignature(data, rawPrivateKey);
+    let hashStr = hash.sha256(data);
+    let signature = sm2impl.doSignature(hashStr, rawPrivateKey);
     console.log('Signature.sign sm2signature: ', signature);
 
     return Signature(signature);
 };
 
 Signature.signHash = function (data, privateKey, encoding = "utf8") {
+    // TODO: to check should data.encoding === encoding
     let rawPrivateKey = PrivateKey.rawSm2PrivateKey(privateKey);
     let rawPublicKey = PrivateKey.rawSm2PublicKey(privateKey);
-    let signature = sm2impl.doSignature(data, rawPrivateKey, { hash: true, publicKey: rawPublicKey });
+    let hashStr = hash.sha256(data);
+    let signature = sm2impl.doSignature(hashStr, rawPrivateKey, { hash: true, publicKey: rawPublicKey });
     console.log(`Signature.signHash rawPrivateKey: ${rawPrivateKey}, rawPublicKey: ${rawPublicKey}, sm2signature: ${signature}`);
     return Signature(signature);
 };

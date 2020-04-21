@@ -30,8 +30,8 @@
 const assert = require("assert").strict;
 let gm = require('.');
 
-// let keys = gm.generateKeyPairWithMnemonic();
-// console.log(keys);
+let keys = gm.generateKeyPairWithMnemonic();
+console.log(keys);
 
 const mnemonic = 'scale exhibit casual wheat present dial sail embody tribe drop famous fiction';
 const rawPrivate = '02271393bb64a826d289920da2ed2c371bcc51aecf92d5cff9f012dfb1132473';
