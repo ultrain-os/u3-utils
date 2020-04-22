@@ -17,7 +17,6 @@ function PublicKey (Q) {
   }
 
   function toUncompressed () {
-    console.log(`PublicKey.toUncompressed Q: ${Q}`);
     return sm2impl.getRawPublicKeyFromCompressedPubicKey(Q);
     // throw new Error('"toUncompressed" is not supported by sm2.');
   }

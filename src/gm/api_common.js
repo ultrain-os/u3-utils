@@ -57,7 +57,7 @@ const sm2 = {
     return Signature.signHash(dataSha256, privateKey, encoding).toString();
   },
 
-  verify: (signature, data, pubkey, encoding = "utf8") => {
+  verify: (sig, data, pubkey, encoding = "utf8") => {
     if (encoding === true) {
       throw new TypeError("API changed, use verifyHash(..) instead");
     } else {
@@ -65,12 +65,12 @@ const sm2 = {
         console.log("Warning: ecc.verify hashData parameter was removed");
       }
     }
-    signature = Signature.from(signature);
+    let signature = Signature.from(sig);
     return signature.verify(data, pubkey, encoding);
   },
 
-  verifyHash(signature, dataSha256, pubkey, encoding = "hex") {
-    signature = Signature.from(signature);
+  verifyHash(sig, dataSha256, pubkey, encoding = "hex") {
+    let signature = Signature.from(sig);
     return signature.verifyHash(dataSha256, pubkey, encoding);
   },
 
@@ -124,7 +124,6 @@ const sm2 = {
     const mnemonic = BIP39.generateMnemonic();
     const seed = BIP39.mnemonicToSeed(mnemonic).toString("hex");
     const wif = sm2.seedPrivate(seed);
-    console.log('wif: ', wif);
     const pubkey = sm2.privateToPublic(wif);
     return {
       mnemonic: mnemonic,

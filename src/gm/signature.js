@@ -11,17 +11,17 @@ function Signature(sm2signature) {
     assert.equal(typeof sm2signature, 'string', 'SM2 signature must be string.');
 
     function verify(data, pubkey, encoding = "utf8") {
-        assert.equal(typeof data === "string", 'data to verify must be string.');
+        assert.equal(typeof data, "string", 'data to verify must be string.');
         let rawPub = PublicKey.fromString(pubkey).toUncompressed();
-        return sm2impl.doVerifySignature(data, sm2signature, rawPub);
+        let hashedData = hash.sha256(data);
+        return sm2impl.doVerifySignature(hashedData, sm2signature, rawPub);
     }
 
     function verifyHash(data, pubkey, encoding = "utf8") {
         assert.equal(typeof data, "string", 'data to verifyHash must be string.');
-        // let rawPub = PublicKey.fromString(pubkey).toUncompressed();
-        let rawPub = pubkey;
-        console.log(`Signature.verifyHash  rawPub: ${rawPub}`);
-        return sm2impl.doVerifySignature(data, sm2signature, rawPub, { hash: true });
+        let rawPub = PublicKey.fromString(pubkey).toUncompressed();
+        let hashedData = hash.sha256(data);
+        return sm2impl.doVerifySignature(hashedData, sm2signature, rawPub, { hash: true });
     };
 
     function recover(data, encoding = "utf8") {
@@ -71,7 +71,6 @@ Signature.sign = function (data, privateKey, encoding = "utf8") {
     let rawPrivateKey = PrivateKey.rawSm2PrivateKey(privateKey);
     let hashStr = hash.sha256(data);
     let signature = sm2impl.doSignature(hashStr, rawPrivateKey);
-    console.log('Signature.sign sm2signature: ', signature);
 
     return Signature(signature);
 };
@@ -82,7 +81,6 @@ Signature.signHash = function (data, privateKey, encoding = "utf8") {
     let rawPublicKey = PrivateKey.rawSm2PublicKey(privateKey);
     let hashStr = hash.sha256(data);
     let signature = sm2impl.doSignature(hashStr, rawPrivateKey, { hash: true, publicKey: rawPublicKey });
-    console.log(`Signature.signHash rawPrivateKey: ${rawPrivateKey}, rawPublicKey: ${rawPublicKey}, sm2signature: ${signature}`);
     return Signature(signature);
 };
 
@@ -101,7 +99,6 @@ Signature.fromStringOrThrow = function (signature) {
     const [, keyType, keyString] = match;
     assert.equal(keyType, "GM", "GM signature expected");
     let sm2signature = keyUtils.checkDecode(keyString, keyType).toString('hex').slice(2);
-    console.log(`Signature.fromStringOrThrow signature=${signature} sm2signature=${sm2signature}`);
     return Signature(sm2signature);
 };
 

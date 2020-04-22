@@ -122,7 +122,6 @@ PrivateKey.fromSeed = function (seed) { // generate_private_key
     }
     let hashedSeed = hash.sha256(seed, 'hex');
     let keys = sm2impl.generateKeyPairHexBySeed(hashedSeed, false);
-    console.log(`fromSeed: ${keys.privateKey}   ${keys.publicKey}`)
 
     return PrivateKey(Buffer.from(keys.privateKey, 'hex'));
 };
@@ -146,7 +145,6 @@ PrivateKey.isValid = function (key) {
 };
 
 PrivateKey.fromString = function (privateStr) {
-    console.log('PrivateKey.fromString = ', privateStr);
     return parseKey(privateStr).privateKey;
 };
 
@@ -157,14 +155,12 @@ PrivateKey.rawSm2PrivateKey = function (wif) {
     const version = versionKey.readUInt8(0);
     assert.equal(0x80, version, `Expected version ${0x80}, instead got ${version}`);
     let rawpriv = versionKey.slice(1).toString('hex');
-    console.log(`PrivateKey.rawSm2PrivateKey wif=${wif} rawpriv=${rawpriv}`);
     return rawpriv;
 }
 
 PrivateKey.rawSm2PublicKey = function (wif) {
     let rawpriv = PrivateKey.rawSm2PrivateKey(wif);
     let pub = sm2impl.generatePublicKeyFromPrivateKey(rawpriv, false);
-    console.log(`PrivateKey.rawSm2PublicKey  wif=${wif}, rawpriv=${rawpriv} pub=${pub}`);
     return pub;
 }
 
