@@ -38,7 +38,7 @@ const mnemonic = 'scale exhibit casual wheat present dial sail embody tribe drop
 const rawPrivate = '02271393bb64a826d289920da2ed2c371bcc51aecf92d5cff9f012dfb1132473';
 const rawPublic = '04c4302fac496f6fd7b3a4856da892b089fa5a0cbf6f5688109dabe7bebd4efad3ed6002520cfe3284a60088b91fbdd2b2e81c663df602498fb8e58ca1488457b9';
 let privateKey = '5HqEZtaJrTC936yiGr4Kgns3dStfLU1icemBUXqARbSx3yFsGJX';
-let publicKey = 'UTR8Kdts4eSMh4n5F8QVpYeZP6kHpLoSQ6c37uSZxXWFcsdBWe96m';
+let publicKey = 'GCF8Kdts4eSMh4n5F8QVpYeZP6kHpLoSQ6c37uSZxXWFcsdBWe96m';
 
 let pub = PublicKey.fromString(publicKey);
 console.log('uncompressed pub: ', pub.toUncompressed());
