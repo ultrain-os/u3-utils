@@ -13,7 +13,7 @@ function PublicKey (Q) {
 
   /** @todo rename to toStringLegacy */
   function toString () {
-    return "UTR" + keyUtils.checkEncode(toBuffer());
+    return "GCF" + keyUtils.checkEncode(toBuffer());
   }
 
   function toUncompressed () {
@@ -44,13 +44,13 @@ PublicKey.isValid = function(text) {
 }
 
 PublicKey.fromString = function(text) {
-  if (/^UTR/.test(text)) {
+  if (/^GCF/.test(text)) {
     let public_key = text.substring(3);
     let s = keyUtils.checkDecode(public_key);
     return PublicKey(s.toString('hex'));
   }
 
-  throw new Error(`${text} is invalid, public key must start with 'UTR'.`);
+  throw new Error(`${text} is invalid, public key must start with 'GCF'.`);
 }
 
 PublicKey.fromBuffer = function(pubbuf) {
@@ -63,7 +63,7 @@ PublicKey.fromStringOrThrow = function(public_key) {
   const match = public_key.match(/^PUB_([A-Za-z0-9]+)_([A-Za-z0-9]+)$/);
   if (match === null) {
     // legacy
-    if (/^UTR/.test(public_key)) {
+    if (/^GCF/.test(public_key)) {
       public_key = public_key.substring(3);
     }
   } else {
