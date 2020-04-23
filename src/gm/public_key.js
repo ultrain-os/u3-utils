@@ -44,6 +44,10 @@ PublicKey.isValid = function(text) {
 }
 
 PublicKey.fromString = function(text) {
+  if (Array.isArray(text.keys) && text.keys.length) {
+    text = text.keys[0].key
+  }
+  
   if (/^GCF/.test(text)) {
     let public_key = text.substring(3);
     let s = keyUtils.checkDecode(public_key);
@@ -59,6 +63,10 @@ PublicKey.fromBuffer = function(pubbuf) {
 }
 
 PublicKey.fromStringOrThrow = function(public_key) {
+  if (Array.isArray(public_key.keys) && public_key.keys.length) {
+    public_key = public_key.keys[0].key
+  }
+  
   assert(typeof public_key, "string", "public_key");
   const match = public_key.match(/^PUB_([A-Za-z0-9]+)_([A-Za-z0-9]+)$/);
   if (match === null) {
