@@ -44,7 +44,7 @@ PublicKey.isValid = function(text) {
 }
 
 PublicKey.fromString = function(text) {
-  if (Array.isArray(text.keys) && text.keys.length) {
+  while (Array.isArray(text.keys) && text.keys.length) {
     text = text.keys[0].key
   }
   
